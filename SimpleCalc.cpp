@@ -20,5 +20,29 @@ int main()
         cout << "Please select an option: ";
         cin >> choice;
 
+        if (choice == 1)
+        {
+            int num1, num2;
+
+            cout << "Enter the first number: ";
+            cin >> num1;
+
+            cout << "Enter the second number: ";
+            cin >> num2;
+
+            cout << "The result is: " << num1 + num2 << endl;
+        }
+        else if (choice == 2)
+        {
+            int num1, num2;
+
+            cout << "Enter the first number: ";
+            cin >> num1;
+
+            cout << "Enter the second number: ";
+            cin >> num2;
+
+            cout << "The result is: " << num1 - num2 << endl;
+        }
     }
 }
