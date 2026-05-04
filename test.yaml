@@ -1,0 +1,28 @@
+---
+- name: Deploy Project
+  hosts: all
+  become: yes
+  
+  vars:
+    project_dir: /opt/cpp-calc-app
+    image_name: cpp-calc-app
+
+  tasks:
+    - name: Ensure Docker is installed
+      command: docker --version
+      register: docker_check
+      failed_when: docker_check.rc != 0
+
+    - name: Create project directory
+      file:
+        path: "{{ project_dir }}"
+        state: directory
+
+    - name: Copy project files
+      copy:
+        src: "{{ item }}"
+        dest: "{{ project_dir }}/"
+      loop:
+        - Dockerfile
+        - Makefile
+        - SimpleCalc.cpp
