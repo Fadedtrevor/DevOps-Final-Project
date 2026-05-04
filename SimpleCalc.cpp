@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 using namespace std;
 
 int main()
@@ -27,8 +28,24 @@ int main()
             cout << "\nEnter the first number: ";
             cin >> num1;
 
+            if (cin.fail())
+            {
+                cout << "\nInvalid option enter an actual number." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+
             cout << "\nEnter the second number: ";
             cin >> num2;
+
+            if (cin.fail())
+            {
+                cout << "\nInvalid option enter an actual number." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
 
             cout << "\nThe result is: " << num1 + num2 << endl;
         }
@@ -39,8 +56,24 @@ int main()
             cout << "\nEnter the first number: ";
             cin >> num1;
 
+            if (cin.fail())
+            {
+                cout << "\nInvalid option enter an actual number." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+
             cout << "\nEnter the second number: ";
             cin >> num2;
+
+            if (cin.fail())
+            {
+                cout << "\nInvalid option enter an actual number." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
 
             cout << "\nThe result is: " << num1 - num2 << endl;
         }
@@ -51,8 +84,24 @@ int main()
             cout << "\nEnter the first number: ";
             cin >> num1;
 
+            if (cin.fail())
+            {
+                cout << "\nInvalid option enter an actual number." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+
             cout << "\nEnter the second number: ";
             cin >> num2;
+
+            if (cin.fail())
+            {
+                cout << "\nInvalid option enter an actual number." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
 
             cout << "\nThe result is: " << num1 * num2 << endl;
         }
@@ -63,17 +112,26 @@ int main()
             cout << "\nEnter the first number: ";
             cin >> num1;
 
+            if (cin.fail())
+            {
+                cout << "\nInvalid option enter an actual number." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+
             cout << "\nEnter the second number: ";
             cin >> num2;
 
-            if (num2 != 0)
+            if (cin.fail() || num2 == 0)
             {
-                cout << "\nThe result is: " << num1 / num2 << endl;
+                cout << "\nInvalid option enter an actual number." << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
             }
-            else
-            {
-                cout << "\nError: Division by zero is not allowed." << endl;
-            }
+
+            cout << "\nThe result is: " << num1 / num2 << endl;
         }
         else if (choice == 5)
         {
@@ -82,7 +140,7 @@ int main()
         }
         else
         {
-            cout << "\nInvalid option. Please try again." << endl;
+            cout << "\nInvalid option enter a number 1-5." << endl;
         }
     }
 }
